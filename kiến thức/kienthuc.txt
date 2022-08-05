@@ -1,0 +1,75 @@
+import logger from "./logger.js";
+import { TYPE_LOG, TYPE_WARN, TYPE_ERROR } from "./constants.js";
+logger("test message... ", TYPE_WARN);
+//
+var name = "javascript";
+var price = 1000;
+
+var course = {
+  name,
+  price,
+  getName() {
+    return name;
+  },
+};
+
+// thay đổi chỉ định biến theo value của biến ở trên
+var course1 = {
+  [name]: "typeScript",
+  [price]: 10000,
+};
+
+console.log(course1);
+
+---rest parameter trong javascript ES6
+function logger({ name, price, ...rest }) {
+  console.log(name);
+  console.log(price);
+  // lấy các phần tử còn lại
+  console.log(rest);
+}
+logger({
+  name: "javascript",
+  price: 1000,
+  address: "Ho Chi Minh",
+  description: "description content",
+});
+
+-- spread 
+công dụng nối mảng 
+var array1 = ["javascript", "ruby", "php"];
+var array2 = ["reactJs", "Dart"];
+var array3 = [...array2, ...array1];
+console.log(array3);
+
+var object1 = {
+  name: "javascript",
+};
+
+var object2 = {
+  price: 1000,
+};
+
+var object3 = {
+  ...object1,
+  ...object2,
+};
+console.log(object3);
+
+
+var config = {
+  api:'https://domain.com',
+  apiVersion:'v1'
+  name:'test'
+}
+
+var configExtends ={
+  // thừa hưởng tất cả của config
+  ...config,
+  // overide lại thuộc tính cần thay đổỉ
+  api:'https://domainchange.com'
+}
+
+
+
+
