@@ -71,5 +71,52 @@ var configExtends ={
 }
 
 
+// TẠO DOM
+const ulDom = document.createElement("ul");
 
+const liDom1 = document.createElement("li");
+liDom1.innerText = "javascript";
 
+const liDom2 = document.createElement("li");
+liDom2.innerText = "nodeJs";
+
+ulDom.appendChild(liDom1);
+ulDom.appendChild(liDom2);
+// thêm id cho ulDom
+ulDom.id = "ul-id";
+// thêm style
+ulDom.style = "color: red";
+
+document.body.appendChild(ulDom);
+
+// tạo dom với react
+const ulReact = React.createElement(
+  "ul",
+  {
+    id: "ul-id",
+    style: "color:red",
+  },
+  React.createElement("li", null, "javascript"),
+  React.createElement("li", null, "nodejs")
+);
+
+render by React
+const postItem = React.createElement(
+  "div",
+  {
+    className: "post-item",
+  },
+  React.createElement("h2", { title: "học react tại f8" }, "học reactjs"),
+  React.createElement("p", {}, "học react từ cơ bản tới nâng cao")
+);
+
+// get root element
+const root = document.getElementById("root");
+ReactDOM.render(postItem, root);
+
+// get root element react 18
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container);
+root.render(postItem);
+
+// JSX là gì ->javascript XML
